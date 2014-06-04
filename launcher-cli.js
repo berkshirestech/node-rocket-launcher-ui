@@ -1,13 +1,13 @@
 var rocketlauncher = require('./launcher');
+var keypress = require('keypress');
+
+keypress(process.stdin);
 
 launcher = new rocketlauncher.RocketLauncher();
 
-var stdin = process.openStdin();
-require('process').stdin.setRawMode(true);
-
 var queued_command = '';
 
-stdin.on('keypress', function(chunk, key) {
+process.stdin.on('keypress', function(chunk, key) {
 
     console.log(key);
     console.log(chunk);
@@ -55,3 +55,6 @@ stdin.on('keypress', function(chunk, key) {
       console.log("Queued command is: " + queued_command + "\n");
     }
 });
+
+process.stdin.setRawMode(true);
+process.stdin.resume();

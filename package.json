@@ -10,5 +10,6 @@
     , "async": "*"
     , "ejs": "*"
     , "process": "*"
+    , "keypress": "*"
   }
 }
